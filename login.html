@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro e Inicio de Sesión</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('/Proyecto/images/reciclaje\ de\ ropa.jpg.webp') no-repeat; /* Verde muy claro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            /*background-color:;  Blanco */
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            color: #2e7d32; /* Verde oscuro */
+            margin-bottom: 20px;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f5f5f5; /* Blanco suave */
+        }
+        button {
+            background-color: #388e3c; /* Verde intenso */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2e7d32; /* Verde oscuro */
+        }
+        .switch {
+            margin-top: 10px;
+            font-size: 0.9em;
+            cursor: pointer;
+            color: #388e3c; /* Verde intenso */
+        }
+        .switch:hover {
+            text-decoration: underline;
+            color: #2e7d32; /* Verde oscuro */
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="register-container">
+        <h2>Registro</h2>
+        <form method="post" action="/Proyecto/public/login.html"></form>
+        <form id="register-form">
+            <input type="text" name="username" placeholder="Usuario" required>
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit">Registrarse</button>
+        </form>
+        <div class="switch" onclick="toggleForm()">¿Ya tienes cuenta? Inicia sesión</div>
+    </div>
+
+    <div class="container" id="login-container" style="display: none;">
+        <h2>Iniciar Sesión</h2>
+        <form id="login-form">
+            <input type="text" name="username" placeholder="Usuario" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <div class="switch" onclick="toggleForm()">¿No tienes cuenta? Regístrate</div>
+    </div>
+
+    <script>
+        const registerContainer = document.getElementById("register-container");
+        const loginContainer = document.getElementById("login-container");
+
+        function toggleForm() {
+            registerContainer.style.display = (registerContainer.style.display === 'none') ? 'block' : 'none';
+            loginContainer.style.display = (loginContainer.style.display === 'none') ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

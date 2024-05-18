@@ -1,0 +1,37 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f7e6; /* Verde muy claro */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: #ffffff; /* Blanco */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    text-align: center;
+}
+
+input,
+textarea {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #388e3c; /* Verde intenso */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2e7d32; /* Verde más oscuro */
+}

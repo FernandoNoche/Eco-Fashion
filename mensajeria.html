@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mensajería Interna</title>
+    <link rel="stylesheet" href="estilos.css"> <!-- Enlace al archivo CSS -->
+    <script>
+        // Función para obtener y mostrar mensajes
+        function cargarMensajes() {
+            fetch('/mensajes') // Obtener los mensajes desde el servidor
+                .then(response => response.json())
+                .then(mensajes => {
+                    const mensajesList = document.getElementById('mensajes-list');
+                    mensajesList.innerHTML = ''; // Limpiar la lista antes de agregar mensajes
+
+                    mensajes.forEach(msg => {
+                        const listItem = document.createElement('li');
+                        listItem.innerHTML = `De ${msg.remitente} a ${msg.destinatario}: ${msg.texto}`;
+                        mensajesList.appendChild(listItem);
+                    });
+                });
+        }
+
+        // Cargar mensajes al cargar la página
+        window.onload = cargarMensajes;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Mensajería Interna</h2>
+        <form method="post" action="/enviar_mensaje">
+            <input type="text" name="destinatario" placeholder="Destinatario" required>
+            <textarea name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+
+        <h3>Mensajes Recibidos:</h3>
+        <ul id="mensajes-list"> <!-- Lista para mostrar los mensajes -->
+            <!-- Los mensajes se cargan aquí con JavaScript -->
+        </ul>
+    </div>
+</body>
+</html>
